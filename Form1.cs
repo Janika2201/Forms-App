@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -161,6 +162,7 @@ namespace FormsApp
                 this.Controls.Add(a3);
 
             }
+            
             else if (e.Node.Text == "MessageBox")
             {
                 MessageBox.Show("MessageBox", "Kõige lihtsam aken");
@@ -175,6 +177,7 @@ namespace FormsApp
                     }
                 }
             }
+            
             else if (e.Node.Text == "ListBox")
             {
                 string[] Colors_nimetused = new string[] { "Sinine", "Kollane", "Roheline", "Punane" };
@@ -207,12 +210,15 @@ namespace FormsApp
             else if (e.Node.Text == "Menu")
             {
                 MainMenu menu = new MainMenu();
-                MenuItem item1 = new MenuItem("File");
-                item1.MenuItems.Add("Exit", new EventHandler(item1_Exit));
-                MenuItem my = new MenuItem("My");
+                MenuItem item1 = new MenuItem("File");//файл
+                item1.MenuItems.Add("Edit");
+                item1.MenuItems.Add("Exit", new EventHandler(item1_Exit));//выход
+                MenuItem my = new MenuItem("My");//мое меню
                 my.MenuItems.Add("New", new EventHandler(item1_new));//новое меню
                 my.MenuItems.Add("Full screen", new EventHandler(item1_fullScreen));//большой экран
                 my.MenuItems.Add("Random color", new EventHandler(item1_colors1));//рандомный цвет фона
+                my.MenuItems.Add("Restarting the program", new EventHandler(item1_restart));//перезагрузка программы
+                my.MenuItems.Add("Website", new EventHandler(item1_website));//ссылка на мой сайт 
                 menu.MenuItems.Add(item1);
                 menu.MenuItems.Add(my);
 
@@ -220,14 +226,23 @@ namespace FormsApp
                 this.Menu = menu;
             }
         }
-        Random random_color = new Random();
 
+        private void item1_website(object sender, EventArgs e)
+        {
+            Process.Start("https://valjataga19.thkit.ee/");
+        }
+
+        private void item1_restart(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        Random random_color = new Random();
         private void item1_colors1(object sender, EventArgs e)
         {
             int Red = random_color.Next(0, 255);
             int Green = random_color.Next(0, 255);
             int Blue = random_color.Next(0, 255);
-
             this.BackColor = Color.FromArgb(Red, Green, Blue);
         }
 
@@ -239,8 +254,12 @@ namespace FormsApp
 
         private void item1_new(object sender, EventArgs e)
         {
-            this.Controls.Clear();
-            this.Controls.Add(tree);
+            if (MessageBox.Show("Kas tahad kustutada kõik?", "Küsimus", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Controls.Clear();
+                this.Controls.Add(tree);
+
+            }
         }
 
         private void Lbox_SelectedIndexChanged(object sender, EventArgs e)
