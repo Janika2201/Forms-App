@@ -59,7 +59,7 @@ namespace FormsApp
             tn.Nodes.Add(new TreeNode("MessageBox"));
             tn.Nodes.Add(new TreeNode("ListBox"));
             tn.Nodes.Add(new TreeNode("DataGridView"));
-            tn.Nodes.Add(new TreeNode("Menu"));
+            tn.Nodes.Add(new TreeNode("Menu"));//меню
             tree.Nodes.Add(tn);
             this.Controls.Add(tree);
         }
