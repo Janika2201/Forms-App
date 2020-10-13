@@ -28,8 +28,8 @@ namespace FormsApp
         ListBox lbox;
         public Form1()
         {
-            this.Height = 500;
-            this.Width = 600;
+            this.Height = 700;
+            this.Width = 1100;
             this.Text = "Vorm elementidega";
             tree = new TreeView();
             tree.Dock = DockStyle.Left;
@@ -198,7 +198,7 @@ namespace FormsApp
                 DataSet dataSet = new DataSet("Näita");
                 dataSet.ReadXml("../../XMLFile.xml");
                 DataGridView dgv = new DataGridView();
-                dgv.Location = new Point(200, 200);
+                dgv.Location = new Point(600, 200);
                 dgv.Width = 400;
                 dgv.Height = 250;
                 dgv.AutoGenerateColumns = true;
@@ -210,6 +210,8 @@ namespace FormsApp
             else if (e.Node.Text == "Menu")
             {
                 MainMenu menu = new MainMenu();
+                BackColor = Color.White;
+                ForeColor = Color.Black;
                 MenuItem item1 = new MenuItem("File");//файл
                 item1.MenuItems.Add("Edit");
                 item1.MenuItems.Add("Exit", new EventHandler(item1_Exit));//выход
@@ -227,18 +229,18 @@ namespace FormsApp
             }
         }
 
-        private void item1_website(object sender, EventArgs e)
+        private void item1_website(object sender, EventArgs e)//меню
         {
             Process.Start("https://valjataga19.thkit.ee/");
         }
 
-        private void item1_restart(object sender, EventArgs e)
+        private void item1_restart(object sender, EventArgs e)//меню
         {
             Application.Restart();
         }
 
         Random random_color = new Random();
-        private void item1_colors1(object sender, EventArgs e)
+        private void item1_colors1(object sender, EventArgs e)//меню
         {
             int Red = random_color.Next(0, 255);
             int Green = random_color.Next(0, 255);
@@ -247,12 +249,18 @@ namespace FormsApp
         }
 
 
-        private void item1_fullScreen(object sender, EventArgs e)
+        private void item1_fullScreen(object sender, EventArgs e)//меню
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
-        private void item1_new(object sender, EventArgs e)
+        private void item1_Exit(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Kas oled kindel?", "Küsimus", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+        private void item1_new(object sender, EventArgs e)//меню
         {
             if (MessageBox.Show("Kas tahad kustutada kõik?", "Küsimus", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -284,13 +292,6 @@ namespace FormsApp
             }
         }
 
-        private void item1_Exit(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Kas oled kindel?", "Küsimus", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
 
         private void radioTab(object sender, EventArgs e)
         {
