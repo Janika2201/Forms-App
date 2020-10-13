@@ -161,6 +161,20 @@ namespace FormsApp
                 this.Controls.Add(a3);
 
             }
+            else if (e.Node.Text == "MessageBox")
+            {
+                MessageBox.Show("MessageBox", "Kõige lihtsam aken");
+                var answer = MessageBox.Show("Tahad InpudBoxi näha?", "Aken koos nupu", MessageBoxButtons.YesNo);
+                if (answer == DialogResult.Yes)
+                {
+                    string text = Interaction.InputBox("Sisesta siia mingi tekst", "InputBox", "Mingi tekst");
+                    if (MessageBox.Show("Kas tahad tekst saada Tekskastisse?", "Teksti salvestamine", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        lbl.Text = text;
+                        Controls.Add(lbl);
+                    }
+                }
+            }
             else if (e.Node.Text == "ListBox")
             {
                 string[] Colors_nimetused = new string[] { "Sinine", "Kollane", "Roheline", "Punane" };
