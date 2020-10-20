@@ -19,3 +19,9 @@ C:\Users\Admin\Source\Repos\TeeView-FormsApp\FormsApp\FormsApp\obj\Debug\FormsAp
 C:\Users\Admin\Source\Repos\TeeView-FormsApp\FormsApp\FormsApp\bin\Debug\WebDriver.dll
 C:\Users\Admin\Source\Repos\TeeView-FormsApp\FormsApp\FormsApp\bin\Debug\WebDriver.xml
 C:\Users\Admin\Source\Repos\TeeView-FormsApp\FormsApp\FormsApp\obj\Debug\FormsApp.csproj.CopyComplete
+C:\Users\opilane\source\repos\Forms-App\obj\Debug\FormsApp.csprojAssemblyReference.cache
+C:\Users\opilane\source\repos\Forms-App\obj\Debug\FormsApp.Properties.Resources.resources
+C:\Users\opilane\source\repos\Forms-App\obj\Debug\FormsApp.csproj.GenerateResource.cache
+C:\Users\opilane\source\repos\Forms-App\obj\Debug\FormsApp.csproj.CoreCompileInputs.cache
+C:\Users\opilane\source\repos\Forms-App\obj\Debug\FormsApp.exe
+C:\Users\opilane\source\repos\Forms-App\obj\Debug\FormsApp.pdb
